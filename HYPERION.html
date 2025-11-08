@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HYPERION</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e0fcff;
+            color: #222;
+        }
+
+        header {
+            background-color: #222;
+            color: #00e5ff;
+            padding: 16px 32px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+            letter-spacing: 2px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 24px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.2s;
+        }
+
+        nav ul li a:hover {
+            color: #00e5ff;
+        }
+
+
+        main {
+            padding: 24px;
+            max-width: 960px;
+            margin: 32px auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 0 16px rgba(0, 0, 0, 0.07);
+        }
+
+        h1,
+        h2,
+        h3,
+        legend {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 12px 0;
+        }
+
+        h1 {
+            font-size: 1.6rem;
+        }
+
+        h2,
+        legend {
+            font-size: 1.3rem;
+            color: #1976d2;
+            border-bottom: 2px solid #00e5ff;
+            padding-bottom: 4px;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        fieldset {
+            border: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        section,
+        fieldset {
+            margin-bottom: 32px;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 12px;
+            margin-right: 12px;
+            padding: 10px 24px;
+            background: #1976d2;
+            color: #fff;
+            font-weight: 600;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.18s;
+        }
+
+        .btn:hover {
+            background: #00e5ff;
+            color: #222;
+        }
+
+        .btn1 {
+            background: #00e5ff;
+            color: #222;
+            font-weight: bold;
+            padding: 10px 26px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.18s, color 0.18s;
+            margin-left: 24px; 
+        }
+
+        .btn1:hover {
+            background: #1976d2;
+            color: #fff;
+        }
+
+        .news-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 24px;
+            padding: 24px 0;
+        }
+
+        .news-container>fieldset {
+            background: #f0ffff;
+            padding: 16px;
+            border-radius: 8px;
+            box-shadow: 0 1px 6px rgba(0, 0, 0, 0.04);
+            flex: 1 1 350px;
+            border: 1px solid #c2e9fb;
+        }
+
+        .news-article {
+            background: #f0ffff;
+            padding: 16px;
+            border-radius: 8px;
+            box-shadow: 0 1px 6px rgba(0, 0, 0, 0.04);
+            flex: 1 1 350px;
+        }
+
+        .champions-row {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin-top: 16px;
+        }
+
+        .champion-card {
+            flex: 1 1 300px;
+            padding: 18px;
+            background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+            border-radius: 10px;
+            box-shadow: 0 1px 8px rgba(0, 0, 0, 0.03);
+            margin-bottom: 16px;
+        }
+
+        .champion-card h2 {
+            color: #7c4dff;
+            border-color: #00e5ff;
+        }
+
+        footer {
+            background: #222;
+            color: #bbb;
+            padding: 30px 12px 10px 12px;
+            text-align: center;
+        }
+
+        footer ul {
+            list-style: none;
+            padding: 0;
+            margin: 12px 0 0 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        footer ul li {
+            margin: 0 16px;
+        }
+
+        footer ul li a,
+        .terms {
+            color: #bbb;
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.13s;
+        }
+
+        footer ul li a:hover,
+        .terms:hover {
+            color: #00e5ff;
+            text-decoration: underline;
+        }
+
+        .social-links {
+            margin: 16px 0;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin-right: 12px;
+            background: #00e5ff;
+            color: #222;
+            border-radius: 20px;
+            padding: 8px 22px;
+            font-weight: bold;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+            text-decoration: none;
+            transition: background 0.18s, color 0.18s;
+        }
+
+        .social-links a:hover {
+            background: #1976d2;
+            color: #fff;
+        }
+
+        @media (max-width: 700px) {
+
+            header {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 20px;
+                width: 100%; /* Ensure nav takes full width */
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px 16px; /* Row and column gap */
+            }
+
+            .btn1 {
+                margin-left: 0; /* Remove left margin on mobile */
+                width: 80%; /* Make button larger */
+                text-align: center;
+            }
+
+            .news-container,
+            .champions-row {
+                flex-direction: column;
+                gap: 18px;
+            }
+
+            main {
+                padding: 12px;
+                margin: 12px 2px;
+            }
+        }
+
+        bt1 {
+            position: relative;
+            left: 2px;
+            top: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>HYPERION</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Champions</a></li>
+                <li><a href="#">News</a></li>
+                <li><a href="#">Esports</a></li>
+                <li><a href="#">Support</a></li>
+            </ul>
+            <a href="#" class="btn1">PLAY NOW</a>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h1>HYPERION — A MULTIPLAYER SIMULATION GAME WHERE TEAMS BATTLE TO DESTROY THE ENEMY STRONGHOLD</h1>
+            <a href="#" class="btn">PLAY FOR FREE</a>
+        </section>
+
+        <div class="news-container">
+            <fieldset>
+                <legend>Latest News</legend>
+                <ul>
+                    <li>
+                        <h3>HYPERION PATCH 12.18 NOTES</h3>
+                        <p>Discover the latest changes and updates in Hyperion Patch 12.18. (25/10/2025)</p>
+                    </li>
+                    <li>
+                        <h3>HYPERION WORLDS FINALS IN CINEMAS</h3>
+                        <p>The big screen experience comes back! (30/10/2025)</p>
+                    </li>
+                </ul>
+            </fieldset>
+        </div>
+
+        <fieldset>
+            <legend>CHOOSE YOUR CHAMPION</legend>
+            <p>Whether you like to dive straight into the fray, support your teammates, or something in between, there’s
+                a spot for you on the Rift.</p>
+            <a href="#" class="btn">DISCOVER MORE CHAMPIONS</a>
+            <a href="#" class="btn">PLAY NOW</a>
+            <div class="champions-row">
+                <div class="champion-card">
+                    <h2>INVADERS</h2>
+                    <h3>THE BUTCHER</h3>
+                    <p>The Rogue Assassin who infamously wields a massive cleaver to slice through enemies.</p>
+                </div>
+                <div class="champion-card">
+                    <h2>GUARDIANS</h2>
+                    <h3>THE BASTION</h3>
+                    <p>The stalwart protector who stands firm against the tide of enemies.</p>
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>SLAY WITH STYLE</legend>
+            <p>Make it personal by changing up the look of your favorite champions with skins.</p>
+            <a href="#" class="btn">STYLE UP</a>
+        </fieldset>
+
+        <fieldset>
+            <legend>MULTIPLE WAYS TO PLAY</legend>
+            <p>Whether you like to dive straight into the fray, support your teammates, or something in between, there’s
+                a spot for you on the Rift.</p>
+            <a href="#" class="btn">EXPLORE</a>
+        </fieldset>
+
+        <fieldset>
+            <legend>SUMMONER'S RIFT</legend>
+            <p>THE MOST POPULAR GAME MODE</p>
+            <p>Clear your lane, dive into epic 5v5 team fights, and destroy the enemy nexus before they destroy yours.
+            </p>
+            <a href="#" class="btn">PLAY FOR FREE</a>
+        </fieldset>
+    </main>
+    <footer>
+        <ul>
+            <li><a href="#">ABOUT LEAGUE OF LEGENDS</a></li>
+            <li><a href="#">HELP US IMPROVE</a></li>
+            <li><a href="#">SERVER STATUS</a></li>
+            <li><a href="#">SUPPORT</a></li>
+            <li><a href="#">ESPORTS PRO SITE</a></li>
+            <li><a href="#">DOWNLOAD HYPERION MOBILE APP</a></li>
+        </ul>
+        <div class="social-links">
+            <a href="#">Youtube</a>
+            <a href="#">Twitter</a>
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">Reddit</a>
+        </div>
+        <p>© 2025 Hyper Games, Inc. All Rights Reserved.</p>
+        <ul>
+            <li><a class="terms" href="#">PRIVACY NOTICE</a></li>
+            <li><a class="terms" href="#">TERMS OF SERVICE</a></li>
+            <li><a class="terms" href="#">COOKIE POLICY</a></li>
+            <li><a class="terms" href="#">COMPANY INFORMATION</a></li>
+        </ul>
+    </footer>
+</body>
+
+</html>
