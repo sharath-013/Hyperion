@@ -1,397 +1,634 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HYPERION</title>
+    <title>HYPERION | 5v5 Multiplayer Simulation</title>
+    
 
     <style>
-        body {
-            font-family: Arial, sans-serif;
+
+        * {
             margin: 0;
             padding: 0;
-            background-color: #e0fcff;
-            color: #222;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: papyrus, sans-serif;
+            background-color: #0a0a1a;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+x
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: #00ffff;
+            color: #0a0a1a;
+            border: 2px solid #00ffff;
+            border-radius: 10px;
+        }
+
+        .btn-primary:hover {
+            background-color: #00e0e0;
+            transform: scale(1.05);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: cyan;
+            border: none;
+            border-radius: 10px;
+        }
+
+        .btn-secondary:hover {
+            background-color: #00ffff;
+            color: #0a0a1a;
+            transform: scale(1.05);
         }
 
         header {
-            background-color: #222;
-            color: #00e5ff;
-            padding: 16px 32px;
+            background-color: rgba(10, 10, 30, 0.8);
+            border-bottom: 1px solid #00ffff30;
+            padding: 15px 0;
             position: sticky;
             top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2rem;
-            letter-spacing: 2px;
+            z-index: 100;
         }
 
         nav {
             display: flex;
+            justify-content: space-between;
             align-items: center;
         }
 
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            gap: 24px;
+        .logo {
+            font-size: 30px;
+            font-weight: 900;
+            font-family: Arial, Helvetica, sans-serif;
+            color: cyan;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
+        .logo span {
+            color: #00ffff;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            justify-content: flex-end;
+            margin-left: 15px;
+        }
+
+        .nav-links li {
+            margin-left: 40px;
+        }
+
+        .nav-links a {
+            text-transform: uppercase;
+            font-size: 14px;
+            font-weight: bold;
+            color: #e0e0e0;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: yellow;
+        }
+
+        .nav-links li:hover{
+            color: yellow;
+            transform: scale(1.1);
+        }
+
+        
+
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 42px;
+            font-weight: 900;
+            text-align: center;
+            text-transform: uppercase;
+            margin-bottom: 60px;
+            color: #ffffff;
+        }
+
+        .section-title span {
+            color: #00ffff;
+        }
+        
+
+        #hero {
+            height: 90vh;
+            min-height: 600px;
+            background-image: url('https://placehold.co/1920x1080/0A0F1E/334155?text=EPIC+BATTLE+ART');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            padding: 0 20px;
+        }
+
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        #hero h1 {
+            font-size: 64px;
+            font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 1px;
-            transition: color 0.2s;
+            margin-bottom: 20px;
         }
 
-        nav ul li a:hover {
-            color: #00e5ff;
+        #hero h1 span.gradient-text {
+
+            color: #00ffff;
+        }
+        
+        #hero h1 span.white-text {
+            color: #ffffff;
+            display: block;
         }
 
-
-        main {
-            padding: 24px;
-            max-width: 960px;
-            margin: 32px auto;
-            background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 0 16px rgba(0, 0, 0, 0.07);
+        #hero p {
+            font-size: 20px;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+            color: #c0c0c0;
         }
 
-        h1,
-        h2,
-        h3,
-        legend {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 12px 0;
+        .hero-buttons .btn {
+            margin: 0 10px;
         }
 
-        h1 {
-            font-size: 1.6rem;
+        #news {
+            background-color: #0f0f2a;
         }
 
-        h2,
-        legend {
-            font-size: 1.3rem;
-            color: #1976d2;
-            border-bottom: 2px solid #00e5ff;
-            padding-bottom: 4px;
-            padding-left: 0;
-            padding-right: 0;
+        .news-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
         }
 
-        h3 {
-            font-size: 1.1rem;
-            color: #333;
+        .news-card {
+            background-color: #1a1a3a;
+            border-radius: 8px;
+            overflow: hidden;
+            width: 350px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
         }
 
-        fieldset {
-            border: none;
-            padding: 0;
-            margin: 0;
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 255, 255, 0.1);
         }
 
-        section,
-        fieldset {
-            margin-bottom: 32px;
+        .news-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
         }
 
-        .btn {
+        .news-card-content {
+            padding: 25px;
+        }
+
+        .news-card-tag {
             display: inline-block;
-            margin-top: 12px;
-            margin-right: 12px;
-            padding: 10px 24px;
-            background: #1976d2;
-            color: #fff;
-            font-weight: 600;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: background 0.18s;
-        }
-
-        .btn:hover {
-            background: #00e5ff;
-            color: #222;
-        }
-
-        .btn1 {
-            background: #00e5ff;
-            color: #222;
+            font-size: 12px;
             font-weight: bold;
-            padding: 10px 26px;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: background 0.18s, color 0.18s;
-            margin-left: 24px; 
+            color: #92FE9D;
+            text-transform: uppercase;
+            margin-bottom: 10px;
         }
 
-        .btn1:hover {
-            background: #1976d2;
-            color: #fff;
+        .news-card-content h3 {
+            font-size: 22px;
+            color: #ffffff;
+            margin-bottom: 10px;
         }
 
-        .news-container {
+        .news-card-content p {
+            font-size: 14px;
+            color: #c0c0c0;
+        }
+
+        .game-info-layout {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .game-info-text,
+        .game-info-visual {
+            flex: 1;
+        }
+        
+        .game-info-visual img {
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .game-info-text h2 {
+            font-size: 36px;
+            font-weight: 900;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .game-info-text p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .game-info-text ul {
+            list-style: none;
+            font-size: 16px;
+        }
+
+        .game-info-text li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 15px;
+        }
+
+        .game-info-text li::before {
+            content: '►';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #00ffff;
+            font-size: 18px;
+        }
+        
+        #shards {
+            background-color: #0f0f2a;
+        }
+
+        .shards-grid {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 24px;
-            padding: 24px 0;
+            justify-content: center;
+            gap: 20px;
         }
-
-        .news-container>fieldset {
-            background: #f0ffff;
-            padding: 16px;
+        
+        .shard-card {
+            width: 220px;
+            position: relative;
             border-radius: 8px;
-            box-shadow: 0 1px 6px rgba(0, 0, 0, 0.04);
-            flex: 1 1 350px;
-            border: 1px solid #c2e9fb;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
         }
 
-        .news-article {
-            background: #f0ffff;
-            padding: 16px;
-            border-radius: 8px;
-            box-shadow: 0 1px 6px rgba(0, 0, 0, 0.04);
-            flex: 1 1 350px;
+        .shard-card:hover {
+            transform: scale(1.05);
         }
-
-        .champions-row {
-            display: flex;
-            gap: 24px;
-            flex-wrap: wrap;
-            margin-top: 16px;
+        
+        .shard-card img {
+            width: 100%;
+            height: 330px;
+            object-fit: cover;
         }
-
-        .champion-card {
-            flex: 1 1 300px;
-            padding: 18px;
-            background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
-            border-radius: 10px;
-            box-shadow: 0 1px 8px rgba(0, 0, 0, 0.03);
-            margin-bottom: 16px;
+        
+        .shard-card-name {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 30px 15px 15px 15px;
+            text-align: center;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
         }
-
-        .champion-card h2 {
-            color: #7c4dff;
-            border-color: #00e5ff;
+        
+        .shard-card-name h3 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+        
+        .shard-card-name span {
+            font-size: 14px;
+            color: #00ffff;
+            text-transform: uppercase;
+            font-weight: bold;
         }
 
         footer {
-            background: #222;
-            color: #bbb;
-            padding: 30px 12px 10px 12px;
+            background-color: #0a0a1a;
+            padding: 40px 0;
             text-align: center;
+            border-top: 1px solid #00ffff30;
         }
 
-        footer ul {
-            list-style: none;
-            padding: 0;
-            margin: 12px 0 0 0;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
+        .footer-socials {
+            margin-bottom: 20px;
         }
 
-        footer ul li {
-            margin: 0 16px;
-        }
-
-        footer ul li a,
-        .terms {
-            color: #bbb;
-            text-decoration: none;
-            font-size: 15px;
-            transition: color 0.13s;
-        }
-
-        footer ul li a:hover,
-        .terms:hover {
-            color: #00e5ff;
-            text-decoration: underline;
-        }
-
-        .social-links {
-            margin: 16px 0;
-        }
-
-        .social-links a {
+        .footer-socials a {
             display: inline-block;
-            margin-right: 12px;
-            background: #00e5ff;
-            color: #222;
-            border-radius: 20px;
-            padding: 8px 22px;
+            margin: 0 10px;
+            font-size: 14px;
             font-weight: bold;
-            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
-            text-decoration: none;
-            transition: background 0.18s, color 0.18s;
+            color: #c0c0c0;
         }
 
-        .social-links a:hover {
-            background: #1976d2;
-            color: #fff;
+        .footer-socials a:hover {
+            color: #00ffff;
+        }
+        
+        .footer-links {
+             margin-bottom: 20px;
         }
 
-        @media (max-width: 700px) {
+        .footer-links a {
+            display: inline-block;
+            margin: 0 10px;
+            font-size: 14px;
+            color: #c0c0c0;
+        }
+        
+        .footer-links a:hover {
+            color: #ffffff;
+        }
 
-            header {
+        footer p {
+            font-size: 12px;
+            color: #777;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Hide nav links on mobile */
+            }
+            
+            #hero h1 {
+                font-size: 42px;
+            }
+            
+            #hero p {
+                font-size: 16px;
+            }
+
+            .hero-buttons {
+                display: flex;
                 flex-direction: column;
-                gap: 20px;
+                gap: 15px;
+                align-items: center;
             }
-
-            nav {
+            
+            .game-info-layout {
                 flex-direction: column;
-                gap: 20px;
-                width: 100%;
+            }
+            
+            .section-title {
+                font-size: 32px;
             }
 
-            nav ul {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 12px 16px;
-            }
-
-            .btn1 {
-                margin-left: 0;
-                width: 80%;
-                text-align: center;
-            }
-
-            .news-container,
-            .champions-row {
-                flex-direction: column;
-                gap: 18px;
-            }
-
-            main {
-                padding: 12px;
-                margin: 12px 2px;
+            .news-card, .shard-card {
+                width: 90%;
+                max-width: 350px;
             }
         }
-
-        bt1 {
-            position: relative;
-            left: 2px;
-            top: 2px;
-        }
+        
     </style>
 </head>
-
 <body>
+
     <header>
-        <h1>HYPERION</h1>
-        <nav>
-            <ul>
-                <li><a href="#">Champions</a></li>
-                <li><a href="#">News</a></li>
+        <nav class="container">
+            <a href="#" class="logo">HYPER<span>IO</span>N</a>
+            <ul class="nav-links">
+                <li><a href="#game-info">Game</a></li>
+                <li><a href="#shards">Shards</a></li>
+                <li><a href="#news">News</a></li>
                 <li><a href="#">Esports</a></li>
-                <li><a href="#">Support</a></li>
+                <li><a href="#">Community</a></li>
+                <li><a href="#">Merchandise</a></li>
+
+
             </ul>
-            <a href="#" class="btn1">PLAY NOW</a>
+            <a href="#" class="btn btn-primary" style="padding: 8px 16px; font-size: 14px;">Sign In</a>
         </nav>
     </header>
+
+
     <main>
-        <section>
-            <h1>HYPERION — A MULTIPLAYER SIMULATION GAME WHERE TEAMS BATTLE TO DESTROY THE ENEMY STRONGHOLD</h1>
-            <a href="#" class="btn">PLAY FOR FREE</a>
-        </section>
 
-        <div class="news-container">
-            <fieldset>
-                <legend>Latest News</legend>
-                <ul>
-                    <li>
-                        <h3>HYPERION PATCH 12.18 NOTES</h3>
-                        <p>Discover the latest changes and updates in Hyperion Patch 12.18. (25/10/2025)</p>
-                    </li>
-                    <li>
-                        <h3>HYPERION WORLDS FINALS IN CINEMAS</h3>
-                        <p>The big screen experience comes back! (30/10/2025)</p>
-                    </li>
-                </ul>
-            </fieldset>
-        </div>
 
-        <fieldset>
-            <legend>CHOOSE YOUR CHAMPION</legend>
-            <p>Whether you like to dive straight into the fray, support your teammates, or something in between, there’s
-                a spot for you on the Rift.</p>
-            <a href="#" class="btn">DISCOVER MORE CHAMPIONS</a>
-            <a href="#" class="btn">PLAY NOW</a>
-            <div class="champions-row">
-                <div class="champion-card">
-                    <h2>INVADERS</h2>
-                    <h3>THE BUTCHER</h3>
-                    <p>The Rogue Assassin who infamously wields a massive cleaver to slice through enemies.</p>
-                </div>
-                <div class="champion-card">
-                    <h2>GUARDIANS</h2>
-                    <h3>THE BASTION</h3>
-                    <p>The stalwart protector who stands firm against the tide of enemies.</p>
+        <section id="hero">
+            <div class="hero-content">
+                <h1>
+                    <span class="gradient-text">Shatter Their</span>
+                    <span class="white-text">Stronghold</span>
+                </h1>
+                <p>
+                    HYPERION is a free-to-play 5v5 multiplayer simulation where teams of powerful Shards battle to destroy the enemy core.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn btn-primary">► Play For Free</a>
+                    <a href="#" class="btn btn-secondary">Watch Trailer</a>
                 </div>
             </div>
-        </fieldset>
+        </section>
 
-        <fieldset>
-            <legend>SLAY WITH STYLE</legend>
-            <p>Make it personal by changing up the look of your favorite champions with skins.</p>
-            <a href="#" class="btn">STYLE UP</a>
-        </fieldset>
 
-        <fieldset>
-            <legend>MULTIPLE WAYS TO PLAY</legend>
-            <p>Whether you like to dive straight into the fray, support your teammates, or something in between, there’s
-                a spot for you on the Rift.</p>
-            <a href="#" class="btn">EXPLORE</a>
-        </fieldset>
+        <section id="news">
+            <div class="container">
+                <h2 class="section-title">Latest From <span>Hyperion</span></h2>
+                
+                <div class="news-grid">
+                    <a href="#" class="news-card">
+                        <img src= "Patch update.png" alt="Patch Notes 1.4">
+                        <div class="news-card-content">
+                            <span class="news-card-tag">Patch Notes</span>
+                            <h3>Patch 1.4: Echoes of the Void</h3>
+                            <p>The Void Anomalies are shifting. See all the Shard balancing, item updates, and system changes arriving in our latest patch.</p>
+                        </div>
+                    </a>
 
-        <fieldset>
-            <legend>SUMMONER'S RIFT</legend>
-            <p>THE MOST POPULAR GAME MODE</p>
-            <p>Clear your lane, dive into epic 5v5 team fights, and destroy the enemy nexus before they destroy yours.
-            </p>
-            <a href="#" class="btn">PLAY FOR FREE</a>
-        </fieldset>
+
+                    <a href="#" class="news-card">
+                        <img src="Vex.png" alt="New Shard Vex">
+                        <div class="news-card-content">
+                            <span class="news-card-tag">Shard Reveal</span>
+                            <h3>New Shard: Vex, The Rogue Synapse</h3>
+                            <p>A being of pure data, Vex hacks the simulation itself. Learn about its abilities and data-corrupting playstyle.</p>
+                        </div>
+                    </a>
+
+                    <a href="#" class="news-card">
+                        <img src="HGC.png" alt="Esports Event">
+                        <div class="news-card-content">
+                            <span class="news-card-tag">Esports</span>
+                            <h3>HGC Summer Finals: Tickets On Sale!</h3>
+                            <p>Watch the top two teams battle for the Hyperion Global Circuit trophy. Get your tickets to the live event!</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="game-info">
+            <div class="container">
+                <div class="game-info-layout">
+
+                    <div class="game-info-text">
+                        <h2>Welcome to the <span>Simulation</span>.</h2>
+                        <p>
+                            Hyperion is a fast-paced, high-stakes 5v5 battle arena. You take control of a "Shard"—a powerful avatar—and work with your team to dismantle the enemy's defenses and destroy their Stronghold, a central core of power.
+                        </p>
+                        <ul>
+                            <li><strong>Choose Your Guardian:</strong> Master unique abilities from a vast roster.</li>
+                            <li><strong>Battle & Evolve:</strong> Gain power, buy items, and control the map.</li>
+                            <li><strong>Destroy the Core:</strong> Break the enemy Stronghold to claim victory.</li>
+                        </ul>
+                    </div>
+                    
+
+                    <div class="game-info-visual">
+                        <video width="100%" height="auto" loop muted autoplay >
+                            <source src="Vid.MP4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="shards">
+            <div class="container">
+                <h2 class="section-title">Choose Your <span>Shard</span></h2>
+                <p style="text-align: center; max-width: 600px; margin: -40px auto 60px auto; color: #c0c0c0;">
+                    From cybernetic assassins to cosmic entities, every Shard has a unique kit. Find the one that matches your playstyle.
+                </p>
+
+                <div class="shards-grid">
+                    <a href="#" class="shard-card">
+                        <img src="Kairos.png" alt="Shard Art for Kairos">
+                        <div class="shard-card-name">
+                            <h3>KAIROS</h3>
+                            <span>The Time Weaver</span>
+                        </div>
+                    </a>
+                    <a href="#" class="shard-card">
+                        <img src="Nox.png" alt="Shard Art for Nyx">
+                        <div class="shard-card-name">
+                            <h3>NYX</h3>
+                            <span>Void Assassin</span>
+                        </div>
+                    </a>
+                    <a href="#" class="shard-card">
+                        <img src="Forge.png" alt="Shard Art for Forge">
+                        <div class="shard-card-name">
+                            <h3>FORGE</h3>
+                            <span>Ironclad Guardian</span>
+                        </div>
+                    </a>
+                    <a href="#" class="shard-card">
+                        <img src="Astra.png" alt="Shard Art for Astra">
+                        <div class="shard-card-name">
+                            <h3>ASTRA</h3>
+                            <span>Cosmic Marksman</span>
+                        </div>
+                    </a>
+                    <a href="#" class="shard-card">
+                        <img src="Orion.png" alt="Shard Art for Orion">
+                        <div class="shard-card-name">
+                            <h3>ORION</h3>
+                            <span>Celestial Judge</span>
+                        </div>
+                    </a>
+                </div>
+                
+                <div style="text-align: center; margin-top: 60px;">
+                    <a href="#" class="btn btn-secondary">View All Shards</a>
+                </div>
+            </div>
+        </section>
+
     </main>
-    <footer>
-        <ul>
-            <li><a href="#">ABOUT LEAGUE OF LEGENDS</a></li>
-            <li><a href="#">HELP US IMPROVE</a></li>
-            <li><a href="#">SERVER STATUS</a></li>
-            <li><a href="#">SUPPORT</a></li>
-            <li><a href="#">ESPORTS PRO SITE</a></li>
-            <li><a href="#">DOWNLOAD HYPERION MOBILE APP</a></li>
-        </ul>
-        <div class="social-links">
-            <a href="#">Youtube</a>
-            <a href="#">Twitter</a>
-            <a href="#">Facebook</a>
-            <a href="#">Instagram</a>
-            <a href="#">Reddit</a>
-        </div>
-        <p>© 2025 Hyper Games, Inc. All Rights Reserved.</p>
-        <ul>
-            <li><a class="terms" href="#">PRIVACY NOTICE</a></li>
-            <li><a class="terms" href="#">TERMS OF SERVICE</a></li>
-            <li><a class="terms" href="#">COOKIE POLICY</a></li>
-            <li><a class="terms" href="#">COMPANY INFORMATION</a></li>
-        </ul>
-    </footer>
-</body>
 
+    <footer>
+        <div class="container">
+            <div class="footer-socials">
+                <a href="#">Instagram</a>
+                <a href="#">Twitter</a>
+                <a href="#">Discord</a>
+                <a href="#">Reddit</a>
+                <a href="#">Youtube</a>
+            </div>
+            <div class="footer-links">
+                <a href="#">Support</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+            <p>
+                © 2025 HYPERION SIMULATIONS. All rights reserved. All trademarks are property of their respective owners.
+            </p>
+        </div>
+    </footer>
+
+</body>
 </html>
