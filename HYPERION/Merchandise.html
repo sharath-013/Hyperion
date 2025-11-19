@@ -5,400 +5,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Merchandise | HYPERION</title>
-
-    <style>
-        body {
-            font-family: papyrus, sans-serif;
-            background-color: #0a0a1a;
-            color: #e0e0e0;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-
-        img {
-            max-width: 100%;
-            display: block;
-            height: auto;
-        }
-
-        header {
-            background-color: #0a0a1a;
-            border-bottom: 1px solid #00ffff30;
-            padding: 15px 0;
-            text-align: center;
-        }
-
-        .logo {
-            font-size: 30px;
-            font-weight: 900;
-            font-family: Arial, Helvetica, sans-serif;
-            color: cyan;
-            text-decoration: none;
-            display: inline-block;
-            vertical-align: middle;
-            margin-bottom: 0;
-            margin-right: 20px;
-        }
-
-        .logo span {
-            color: #00ffff;
-        }
-
-        nav {
-            display: inline-block;
-            vertical-align: middle;
-        }
-
-        .nav-links {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-
-        .nav-links li {
-            display: inline-block;
-            margin: 0 15px;
-        }
-
-        .nav-links a {
-            text-transform: uppercase;
-            font-size: 14px;
-            font-weight: bold;
-            color: #e0e0e0;
-            text-decoration: none;
-        }
-        
-        .nav-links a.active {
-            color: yellow;
-        }
-        
-        .header-signin {
-            display: inline-block;
-            vertical-align: middle;
-            margin-top: 0;
-            margin-left: 20px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 16px;
-            font-weight: bold;
-            text-transform: uppercase;
-            text-decoration: none;
-        }
-
-        .btn-pri {
-            background-color: #00ffff;
-            color: #0a0a1a;
-            border: 2px solid #00ffff;
-        }
-
-        .btn-sec {
-            background-color: transparent;
-            color: cyan;
-            border: 1px solid cyan;
-            padding: 5px 10px;
-        }
-
-        main {
-            display: block;
-        }
-        
-        section {
-            padding: 60px 0;
-        }
-
-        .section-title {
-            font-size: 36px;
-            font-weight: 900;
-            text-align: center;
-            text-transform: uppercase;
-            margin-bottom: 40px;
-            color: #ffffff;
-        }
-
-        .section-title span {
-            color: #00ffff;
-        }
-
-        #merch-hero {
-            background-color: #1a1a3a;
-            padding: 40px 15px;
-            text-align: center;
-        }
-
-        #merch-hero h1 {
-            font-size: 42px;
-            font-weight: 900;
-            text-transform: uppercase;
-            color: #ffffff;
-        }
-        
-        #merch-hero h1 span {
-            color: #00ffff;
-        }
-
-        #store-cta {
-            background-color: #0f0f2a;
-        }
-        
-        .cta-section {
-            background-color: #1a1a3a;
-            padding: 30px;
-            border: 1px solid #00ffff30;
-            text-align: center;
-        }
-        
-        .cta-text h2 {
-            font-size: 32px;
-            font-weight: 900;
-            color: #ffffff;
-            margin-bottom: 10px;
-        }
-        
-        .cta-text p {
-            font-size: 18px;
-            color: #c0c0c0;
-            margin-bottom: 25px;
-        }
-        
-        .cta-button .btn-pri {
-            padding: 15px 30px;
-            font-size: 18px;
-        }
-
-        #featured-products {
-            background-color: #0a0a1a;
-        }
-
-        .product-card {
-            background-color: #1a1a3a;
-            overflow: hidden;
-            width: 100%;
-            margin-bottom: 20px;
-            border: 1px solid #333;
-            text-align: center;
-        }
-
-        .product-card img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            background-color: #0f0f2a;
-            margin: 0 auto;
-        }
-
-        .product-card-content {
-            padding: 25px;
-            text-align: center;
-        }
-
-        .product-card-content h3 {
-            font-size: 22px;
-            color: #ffffff;
-            margin-bottom: 5px;
-            text-transform: uppercase;
-        }
-
-        .product-card-content p {
-            font-size: 16px;
-            color: #00ffff;
-            font-weight: bold;
-        }
-
-        #collections {
-            background-color: #0f0f2a;
-        }
-
-        .news-card {
-            background-color: #1a1a3a;
-            overflow: hidden;
-            width: 100%;
-            margin-bottom: 20px;
-            border: 1px solid #333;
-        }
-
-        .news-card img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .news-card-content {
-            padding: 25px;
-        }
-
-        .news-card-tag {
-            display: inline-block;
-            font-size: 12px;
-            font-weight: bold;
-            color: #92FE9D;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-        }
-
-        .news-card-content h3 {
-            font-size: 22px;
-            color: #ffffff;
-            margin-bottom: 10px;
-        }
-
-        .news-card-content p {
-            font-size: 14px;
-            color: #c0c0c0;
-        }
-
-        footer {
-            background-color: #0a0a1a;
-            padding: 40px 0;
-            text-align: center;
-            border-top: 1px solid #00ffff30;
-        }
-
-        .footer-media {
-            margin-bottom: 20px;
-        }
-
-        .footer-media a {
-            display: inline-block;
-            margin: 0 10px;
-            font-size: 14px;
-            font-weight: bold;
-            color: #c0c0c0;
-            text-decoration: none;
-        }
-
-        .footer-links {
-            margin-bottom: 20px;
-        }
-
-        .footer-links a {
-            display: inline-block;
-            margin: 0 10px;
-            font-size: 14px;
-            color: #c0c0c0;
-            text-decoration: none;
-        }
-
-        footer p {
-            font-size: 12px;
-            color: #777;
-        }
-
-    </style>
+    <link rel="stylesheet" href="Merchandise.css">
 </head>
 
 <body>
 
     <header>
-        <div class="container">
-            <a href="#" class="logo">HYPER<span>IO</span>N</a>
-            
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="#">Game</a></li>
-                    <li><a href="#">Esports</a></li>
-                    <li><a href="#">Community</a></li>
-                    <li><a href="#" class="active">Merchandise</a></li>
-                </ul>
-            </nav>
-            
-            <div class="header-signin">
-                 <a href="#" class="btn btn-pri" style="padding: 8px 16px; font-size: 14px;">Sign In</a>
-            </div>
-        </div>
+        <nav class="container">
+            <a href="Home.html" class="logo">HYPERION</a>
+            <ul class="nav-links">
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="Esports.html">Esports</a></li>
+                <li><a href="Community.html">Community</a></li>
+                <li><a href="Merchandise.html" style="color: palevioletred;">Merchandise</a></li>
+            </ul>
+            <a href="Signup.html" class="btn btn-pri" style="padding: 8px 16px; font-size: 14px;">Sign In</a>
+        </nav>
     </header>
-
 
     <main>
 
-        <section id="merch-hero">
-            <h1>Official <span>Gear</span></h1>
+        <section class="merch-main">
+            <div class="main-content">
+                <h1>
+                    Official Gear
+                </h1>
+                <p>
+                    Equip yourself with high-quality apparel, collectibles, and accessories from the Hyperion universe.
+                </p>
+                <div class="main-buttons">
+                    <a href="#" class="btn btn-pri">View Collection</a>
+                </div>
+            </div>
         </section>
 
-        <section id="featured-products">
+        <section class="collections">
             <div class="container">
-                <h2 class="section-title">Featured <span>Products</span></h2>
-                
+                <h2 class="section-title">Shop By Category</h2>
+
                 <div class="product-grid">
-                    <div class="product-card">
-                        <img src="https://placehold.co/400x400/1a1a3a/00ffff?text=Nox+Statue" alt="Nox Statue">
-                        <div class="product-card-content">
-                            <h3>Nox Collector's Statue</h3>
-                            <p>$120.00</p>
+                    <a href="#" class="product-card">
+                        <img src="#" alt="Apparel Collection">
+                        <div class="product-content">
+                            <h3>Apparel</h3>
+                            <p style="color: #c0c0c0; font-size: 14px;">Hoodies, tees, and hats.</p>
                         </div>
-                    </div>
-                    <div class="product-card">
-                        <img src="https://placehold.co/400x400/1a1a3a/00ffff?text=Hyperion+Hoodie" alt="Hyperion Hoodie">
-                        <div class="product-card-content">
-                            <h3>Hyperion Logo Hoodie</h3>
-                            <p>$55.00</p>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <img src="https://placehold.co/400x400/1a1a3a/00ffff?text=Shard+Pins" alt="Shard Pins">
-                        <div class="product-card-content">
-                            <h3>Shard Insignia Pin Set</h3>
-                            <p>$25.00</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section id="collections">
-            <div class="container">
-                <h2 class="section-title">Shop <span>Collections</span></h2>
+                    </a>
 
-                <div class="news-grid">
-                    <div class="news-card">
-                        <img src="https://placehold.co/350x200/1a1a3a/92FE9D?text=Shard+Collection" alt="Shard Collection">
-                        <div class="news-card-content">
-                            <span class="news-card-tag">Apparel & More</span>
-                            <h3>The Shard Collection</h3>
-                            <p>Show your loyalty. Gear up with apparel and accessories inspired by your favorite Shards.</p>
+                    <a href="#" class="product-card">
+                        <img src="#" alt="Collectibles Collection">
+                        <div class="product-content">
+                            <h3>Collectibles</h3>
+                            <p style="color: #c0c0c0; font-size: 14px;">Figures and art prints.</p>
                         </div>
-                    </div>
-                    <div class="news-card">
-                        <img src="https://placehold.co/350x200/1a1a3a/92FE9D?text=HGC+Gear" alt="HGC Gear">
-                        <div class="news-card-content">
-                            <span class="news-card-tag">Esports</span>
-                            <h3>HGC Team Gear</h3>
-                            <p>Support your favorite pro team with official Hyperion Global Circuit jerseys and kits.</p>
-                        </div>
-                    </div>
-                    <div class="news-card">
-                        <img src="https://placehold.co/350x200/1a1a3a/92FE9D?text=Collectibles" alt="Collectibles">
-                        <div class="news-card-content">
-                            <span class="news-card-tag">Premium</span>
-                            <h3>Figures & Collectibles</h3>
-                            <p>High-detail statues, figures, and replicas straight from the Hyperion simulation.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+                    </a>
 
-        <section id="store-cta">
-            <div class="container">
-                <div class="cta-section">
-                    <div class="cta-text">
-                        <h2>Visit the Official Store</h2>
-                        <p>Find all this and more on the official Hyperion merchandise store. New items added every patch!</p>
-Do not make any changes to this code.
-                    </div>
-                    <div class="cta-button">
-                        <a href="#" class="btn btn-pri">Shop Now</a>
-                    </div>
+                    <a href="#" class="product-card">
+                        <img src="#" alt="Accessories Collection">
+                        <div class="product-content">
+                            <h3>Accessories</h3>
+                            <p style="color: #c0c0c0; font-size: 14px;">Keychains, pins, and more.</p>
+                        </div>
+                    </a>
                 </div>
             </div>
         </section>
@@ -419,9 +87,9 @@ Do not make any changes to this code.
                 <a href="#">Privacy Policy</a>
                 <a href="#">Terms of Service</a>
             </div>
-            
+
             <p>
-                @ 2025 HYPERION STUDIOS. All rights reserved. All trademarks are property of their respective owners.
+                @ 2025 HYPERION STUDIOS.
             </p>
         </div>
     </footer>
