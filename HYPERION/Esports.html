@@ -5,355 +5,116 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HYPERION | Esports</title>
-
-    <style>
-        body {
-            font-family: papyrus, sans-serif;
-            background-color: #0a0a1a;
-            color: #e0e0e0;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-        }
-
-        a {
-            text-decoration: none;
-            color: #00ffff; 
-        }
-
-        a:hover {
-            color: yellow;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        h1, h2, h3 {
-            color: #ffffff;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        h1 {
-            font-size: 48px;
-        }
-        
-        h2 {
-            font-size: 36px;
-        }
-
-        p {
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto 20px auto;
-            color: #c0c0c0;
-        }
-
-        header {
-            background-color: #0a0a1a;
-            border-bottom: 1px solid #00ffff30;
-            padding: 20px;
-        }
-        
-        nav {
-            display: table;
-            width: 100%;
-        }
-
-        nav > div:first-of-type { 
-            display: table-cell;
-            vertical-align: middle;
-            width: 20%; 
-            text-align: left;
-        }
-        
-        nav > a.button-link {
-            display: table-cell;
-            vertical-align: middle;
-            width: 15%; 
-            text-align: right;
-        }
-
-        header a {
-            font-weight: bold;
-            text-transform: uppercase;
-            vertical-align: middle; 
-        }
-
-        header nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0; 
-            display: table-cell; 
-            vertical-align: middle; 
-            text-align: center; 
-        }
-
-        header nav li {
-            display: inline-block;
-            margin: 0 15px;
-        }
-
-        main {
-            display: block;
-        }
-
-        section {
-            padding: 60px 20px;
-            border-bottom: 1px solid #00ffff30;
-        }
-
-        #hero-esports {
-            background-color: #1a1a3a;
-            text-align: center;
-        }
-
-        #hero-esports h1 span {
-            display: block;
-        }
-        #hero-esports h1 span:first-child {
-            color: #00ffff;
-        }
-        
-        .button-link {
-            display: inline-block;
-            padding: 8px 10px; 
-            border: 1px solid cyan;
-            color: cyan;
-            margin: 5px;
-        }
-        
-        .button-link:hover {
-            background-color: #00ffff;
-            color: #0a0a1a;
-        }
-        
-        #hgc-info img {
-            max-width: 500px;
-            margin: 0 auto 20px auto;
-            border: 1px solid #00ffff30;
-        }
-
-        #teams {
-            background-color: #0f0f2a;
-        }
-
-        .teams-container {
-            text-align: center; 
-        }
-        
-        .team-card {
-            display: inline-block;
-            width: 250px;
-            background-color: #1a1a3a;
-            border: 1px solid #00ffff30;
-            margin: 10px;
-            padding: 20px;
-            vertical-align: top;
-        }
-        
-        .team-card img {
-            width: 150px;
-            height: 150px;
-            margin: 0 auto 15px auto;
-            background-color: #0a0a1a;
-            border-radius: 50%;
-        }
-        
-        .team-card h3 {
-            margin-bottom: 5px;
-        }
-        
-        .team-card span {
-            color: #00ffff;
-            font-weight: bold;
-        }
-
-        .watch-container {
-            text-align: center;
-        }
-        
-        .watch-card {
-            display: inline-block;
-            width: 300px;
-            border: 1px solid #00ffff30;
-            margin: 10px;
-            padding: 20px;
-            vertical-align: top;
-            text-align: left;
-        }
-        
-        .watch-card img {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-            margin-bottom: 15px;
-            background-color: #0a0a1a;
-        }
-        
-        .watch-card h3 {
-            text-align: left;
-            margin-bottom: 10px;
-        }
-        
-        .watch-card p {
-            text-align: left;
-            margin: 0;
-        }
-        
-        .watch-card span {
-            color: #92FE9D; 
-            font-weight: bold;
-            font-size: 12px;
-        }
-
-        footer {
-            background-color: #0a0a1a;
-            padding: 40px 20px;
-            text-align: center;
-            color: #777;
-        }
-        
-        footer a {
-            color: #c0c0c0;
-            font-weight: bold;
-            margin: 0 10px;
-        }
-
-        footer div {
-            margin-bottom: 20px;
-        }
-
-    </style>
+    <link rel="stylesheet" href="Esports.css">
 </head>
 
 <body>
 
     <header>
-        <nav>
-            <div style="font-size: 24px; font-weight: bold; text-transform: uppercase; vertical-align: middle;">HYPER<span style="color: #00ffff;">IO</span>N</div>
-            <ul>
-                <li><a href="hyperion_landing_page.html">Game</a></li>
-                <li><a href="esports.html">Esports</a></li>
-                <li><a href="#">Community</a></li>
-                <li><a href="#">Merchandise</a></li>
+        <nav class="container">
+            <a href="Home.html" class="logo">HYPERION</a>
+            <ul class="nav-links">
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="Esports.html" style="color: palevioletred;">Esports</a></li>
+                <li><a href="Community.html">Community</a></li>
+                <li><a href="Merchandise.html">Merchandise</a></li>
             </ul>
-            <a href="#" class="button-link">Sign In</a>
+            <a href="Signup.html" class="btn btn-pri" style="padding: 8px 16px; font-size: 14px;">Sign In</a>
         </nav>
     </header>
 
     <main>
 
-        <section id="hero-esports">
-            <h1>
-                <span>HYPERION GLOBAL</span>
-                <span>CIRCUIT</span>
-            </h1>
-            <div>
-                <a href="#" class="button-link"> Watch Live</a>
-                <a href="#" class="button-link"> ►View Schedule</a>
+        <section class="main">
+            <div class="main-content">
+                <h1>
+                    Global <span>Finals</span>
+                </h1>
+                <p>
+                    The world's best teams compete for the Hyperion Cup. Watch the action live.
+                </p>
+                <div>
+                    <a href="#" class="btn btn-pri">View Schedule</a>
+                    <a href="#" class="btn btn-sec">Watch Now</a>
+                </div>
             </div>
         </section>
 
-        <section id="hgc-info">
-            <h2>The <span>HGC</span>.</h2>
-            <img src="#" alt="HGC Championship Trophy">
-            <p>
-                The Hyperion Global Circuit (HGC) is our premier esports league, where teams from around the world
-                battle through regional qualifiers for a spot at the World Championship.
-            </p>
-            <p>
-                Millions in prize money, eternal glory, and the title of World Champion are on the line.
-            </p>
-        </section>
+        <section class="team-section">
+            <div class="container">
+                <h2 class="section-title">League Standings</h2>
 
-        <section id="teams">
-            <h2>Meet The <span>Titans</span></h2>
-            <p>
-                These are the top contenders in the current HGC season.
-            </p>
-
-            <div class="teams-container">
-                <a href="#" class="team-card">
-                    <img src="#" alt="Team Logo">
-                    <h3>VOID RAIDERS</h3>
-                    <span>NA Region</span>
-                </a>
-                <a href="#" class="team-card">
-                    <img src="#" alt="Team Logo">
-                    <h3>CYBER STRIKERS</h3>
-                    <span>EU Region</span>
-                </a>
-                <a href="#" class="team-card">
-                    <img src="#" alt="Team Logo">
-                    <h3>SEOUL DYNASTY</h3>
-                    <span>KR Region</span>
-                </a>
-                <a href="#" class="team-card">
-                    <img src="#" alt="Team Logo">
-                    <h3>DRAGON'S BANE</h3>
-                    <span>CN Region</span>
-                </a>
-            </div>
-
-            <div style="text-align: center; margin-top: 40px;">
-                <a href="#" class="button-link">View All Teams & Standings</a>
-            </div>
-        </section>
-
-
-        <section id="watch">
-            <h2>Where to <span>Watch</span></h2>
-            <p>
-                Catch every match live, complete with expert commentary, exclusive interviews, and drops.
-            </p>
-
-            <div class="watch-container">
-                <a href="#" class="watch-card">
-                    <img src="#" alt="Watch on Twitch">
-                    <div>
-                        <span>Main Broadcast</span>
-                        <h3>Watch on Twitch</h3>
-                        <p>The primary broadcast for all HGC matches. Follow to get notified when we go live!</p>
+                <div class="team-list">
+                    <div class="team-item">
+                        <div class="rank-number">01</div>
+                        <div class="team-info">
+                            <div class="team-details">
+                                <h3>Team Nemesis</h3>
+                                <p>Season Points: 1,450</p>
+                            </div>
+                        </div>
+                        <div class="team-region">North America</div>
                     </div>
-                </a>
 
-                <a href="#" class="watch-card">
-                    <img src="#" alt="Watch In-Game">
-                    <div>
-                        <span>Client</span>
-                        <h3>Watch In-Game</h3>
-                        <p>Load up the HYPERION client to watch live matches with full control over the camera.</p>
+                    <div class="team-item">
+                        <div class="rank-number">02</div>
+                        <div class="team-info">
+                            <div class="team-details">
+                                <h3>Solaris Gaming</h3>
+                                <p>Season Points: 1,380</p>
+                            </div>
+                        </div>
+                        <div class="team-region">Europe</div>
                     </div>
-                </a>
+
+                    <div class="team-item">
+                        <div class="rank-number">03</div>
+                        <div class="team-info">
+                            <div class="team-details">
+                                <h3>Void Walkers</h3>
+                                <p>Season Points: 1,250</p>
+                            </div>
+                        </div>
+                        <div class="team-region">Asia Pacific</div>
+                    </div>
+
+                    <div class="team-item">
+                        <div class="rank-number">04</div>
+                        <div class="team-info">
+                            <div class="team-details">
+                                <h3>Cyber Athletics</h3>
+                                <p>Season Points: 1,190</p>
+                            </div>
+                        </div>
+                        <div class="team-region">South Korea</div>
+                    </div>
+                </div>
             </div>
         </section>
-
 
     </main>
 
-
     <footer>
-        <div>
-            <a href="#">Instagram</a>
-            <a href="#">Twitter</a>
-            <a href="#">Discord</a>
-            <a href="#">Reddit</a>
-            <a href="#">Youtube</a>
-        </div>
-        <div>
-            <a href="#">Support</a>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
-        </div>
+        <div class="container">
+            <div class="footer-media">
+                <a href="#">Instagram</a>
+                <a href="#">Twitter</a>
+                <a href="#">Discord</a>
+                <a href="#">Reddit</a>
+                <a href="#">Youtube</a>
+            </div>
+            <div class="footer-links">
+                <a href="#">Support</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
 
-        <p>
-            @ 2025 HYPERION STUDIOS. All rights reserved. All trademarks are property of their respective owners.
-        </p>
+            <p>
+                @ 2025 HYPERION STUDIOS.
+            </p>
+        </div>
     </footer>
 
 </body>
+
 </html>

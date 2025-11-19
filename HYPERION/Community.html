@@ -1,445 +1,98 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Community | HYPERION</title>
-
-    <style>
-        body {
-            font-family: papyrus, sans-serif;
-            background-color: #0a0a1a;
-            color: #e0e0e0;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-
-    
-        header {
-            background-color: #0a0a1a;
-            border-bottom: 1px solid #00ffff30;
-            padding: 15px 0;
-            text-align: center;
-        }
-
-        .logo {
-            font-size: 30px;
-            font-weight: 900;
-            font-family: Arial, Helvetica, sans-serif;
-            color: cyan;
-            text-decoration: none;
-            display: inline-block;
-            vertical-align: middle;
-            margin-bottom: 0;
-            margin-right: 20px;
-        }
-
-        .logo span {
-            color: #00ffff;
-        }
-
-        nav {
-            display: inline-block;
-            vertical-align: middle;
-        }
-
-        .nav-links {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-
-        .nav-links li {
-            display: inline-block;
-            margin: 0 15px;
-        }
-
-        .nav-links a {
-            text-transform: uppercase;
-            font-size: 14px;
-            font-weight: bold;
-            color: #e0e0e0;
-            text-decoration: none;
-        }
-        
-        .nav-links a.active {
-            color: yellow;
-        }
-        
-        .header-signin {
-            display: inline-block;
-            vertical-align: middle;
-            margin-top: 0;
-            margin-left: 20px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 16px;
-            font-weight: bold;
-            text-transform: uppercase;
-            text-decoration: none;
-        }
-
-        .btn-pri {
-            background-color: #00ffff;
-            color: #0a0a1a;
-            border: 2px solid #00ffff;
-        }
-
-        .btn-sec {
-            background-color: transparent;
-            color: cyan;
-            border: 1px solid cyan;
-            padding: 5px 10px;
-        }
-
-        main {
-            display: block;
-        }
-        
-        section {
-            padding: 60px 0;
-        }
-
-        .section-title {
-            font-size: 36px;
-            font-weight: 900;
-            text-align: center;
-            text-transform: uppercase;
-            margin-bottom: 40px;
-            color: #ffffff;
-        }
-
-        .section-title span {
-            color: #00ffff;
-        }
-        
-        .section-subtitle {
-            text-align: center;
-            max-width: 600px;
-            margin: -20px auto 40px auto;
-            color: #c0c0c0;
-        }
-
-        #community-hero {
-            background-color: #1a1a3a;
-            padding: 40px 15px;
-            text-align: center;
-        }
-
-        #community-hero h1 {
-            font-size: 42px;
-            font-weight: 900;
-            text-transform: uppercase;
-            color: #ffffff;
-        }
-        
-        #community-hero h1 span {
-            color: #00ffff;
-        }
-
-        #join-us {
-            background-color: #0f0f2a;
-        }
-        
-        .cta-section {
-            background-color: #1a1a3a;
-            padding: 30px;
-            border: 1px solid #00ffff30;
-            text-align: center;
-        }
-        
-        .cta-text h2 {
-            font-size: 32px;
-            font-weight: 900;
-            color: #ffffff;
-            margin-bottom: 10px;
-        }
-        
-        .cta-text p {
-            font-size: 18px;
-            color: #c0c0c0;
-            margin-bottom: 25px;
-        }
-        
-        .cta-button .btn-pri {
-            padding: 15px 30px;
-            font-size: 18px;
-        }
-
-        #showcase {
-            background-color: #0a0a1a;
-        }
-        
-        .showcase-card {
-            background-color: #1a1a3a;
-            overflow: hidden;
-            width: 100%;
-            margin-bottom: 20px;
-            border: 1px solid #333;
-        }
-
-        .showcase-card img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .showcase-card-content {
-            padding: 25px;
-        }
-
-        .showcase-card-content h3 {
-            font-size: 22px;
-            color: #ffffff;
-            margin: 0 0 5px 0;
-        }
-
-        .showcase-card-content p {
-            font-size: 14px;
-            color: #00ffff;
-            font-weight: bold;
-            margin: 0;
-        }
-        
-        .view-more-button {
-            text-align: center;
-            margin-top: 40px;
-        }
-
-        #events {
-            background-color: #0f0f2a;
-        }
-
-        .event-card {
-            background-color: #1a1a3a;
-            padding: 25px 30px;
-            margin-bottom: 20px;
-            border-left: 5px solid #00ffff;
-        }
-        
-        .event-date {
-            text-align: left;
-            margin-bottom: 10px;
-        }
-        
-        .event-date .month {
-            font-size: 14px;
-            text-transform: uppercase;
-            color: #00ffff;
-            font-weight: bold;
-        }
-        
-        .event-date .day {
-            font-size: 36px;
-            font-weight: 900;
-            color: #ffffff;
-            line-height: 1;
-        }
-
-        .event-details h3 {
-            font-size: 24px;
-            color: #ffffff;
-            margin: 0 0 5px 0;
-        }
-        
-        .event-details p {
-            font-size: 16px;
-            color: #c0c0c0;
-            margin: 0 0 20px 0;
-        }
-        
-        .event-action .btn-sec {
-            font-size: 14px;
-            padding: 8px 16px;
-        }
-
-        footer {
-            background-color: #0a0a1a;
-            padding: 40px 0;
-            text-align: center;
-            border-top: 1px solid #00ffff30;
-        }
-
-        .footer-media {
-            margin-bottom: 20px;
-        }
-
-        .footer-media a {
-            display: inline-block;
-            margin: 0 10px;
-            font-size: 14px;
-            font-weight: bold;
-            color: #c0c0c0;
-            text-decoration: none;
-        }
-
-        .footer-links {
-            margin-bottom: 20px;
-        }
-
-        .footer-links a {
-            display: inline-block;
-            margin: 0 10px;
-            font-size: 14px;
-            color: #c0c0c0;
-            text-decoration: none;
-        }
-
-        footer p {
-            font-size: 12px;
-            color: #777;
-        }
-
-    </style>
+    <link rel="stylesheet" href="Community.css">
 </head>
 
 <body>
-
     <header>
-        <div class="container">
-            <a href="index.html" class="logo">HYPER<span>IO</span>N</a>
-            
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="index.html">Game</a></li>
-                    <li><a href="#">Esports</a></li>
-                    <li><a href="community.html" class="active">Community</a></li>
-                    <li><a href="#">Merchandise</a></li>
-                </ul>
-            </nav>
-            
-            <div class="header-signin">
-                 <a href="#" class="btn btn-pri" style="padding: 8px 16px; font-size: 14px;">Sign In</a>
-            </div>
-        </div>
+        <nav class="cont">
+            <a href="Home.html" class="logo">HYPERION</a>
+            <ul class="nav-links">
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="Esports.html">Esports</a></li>
+                <li><a style="color: palevioletred;" href="Community.html" >Community</a></li>
+                <li><a href="Merchandise.html">Merchandise</a></li>
+            </ul>
+            <a href="Signup.html" class="btn btn-pri" style="padding: 8px 16px; font-size: 14px;">Sign In</a>
+        </nav>
     </header>
 
-
     <main>
-
-        <section id="community-hero">
-            <h1>Join The <span>Simulation</span></h1>
+        <section class="main">
+            <div class="main-content">
+                <h1>
+                    Join The<br>
+                    <span>Simulation</span>
+                </h1>
+            </div>
         </section>
 
-        <section id="join-us">
-            <div class="container">
-                <div class="cta-section">
-                    <div class="cta-text">
-                        <h2>Join the Official Discord</h2>
-                        <p>Get the latest news, find teammates, share your creations, and chat directly with the dev team.</p>
-                    </div>
-                    <div class="cta-button">
-                        <a href="#" class="btn btn-pri">Join Now</a>
-                    </div>
+        <section class="discord">
+            <div class="cont">
+                <div class="cta-box">
+                    <h2>Join the Official Discord</h2>
+                    <p>Get the latest news, find teammates, share your creations, and chat directly with the dev team.</p>
+                    <a href="#" class="btn btn-pri">Join Now</a>
                 </div>
             </div>
         </section>
 
-        <section id="showcase">
-            <div class="container">
-                <h2 class="section-title">Community <span>Showcase</span></h2>
-                <p class="section-subtitle">
-                    Check out the incredible fan art, videos, and guides created by the Hyperion community.
-                </p>
+        <section class="es">
+            <div class="cont">
+                <h2 class="section-title">Upcoming es</h2>
 
-                <div class="showcase-grid">
-                    <div class="showcase-card">
-                        <img src="https://placehold.co/600x400/1a1a3a/00ffff?text=Fan+Art+of+Nox" alt="Fan Art of Nox">
-                        <div class="showcase-card-content">
-                            <h3>Void Assassin</h3>
-                            <p>by ArtistGamer_22</p>
-                        </div>
+                <div class="e-card">
+                    <div class="e-date">
+                        <span class="month">NOV</span>
+                        <span class="day">20</span>
                     </div>
-                    
-                    <div class="showcase-card">
-                        <img src="https://placehold.co/600x400/1a1a3a/00ffff?text=Kairos+Guide" alt="Guide for Kairos">
-                        <div class="showcase-card-content">
-                            <h3>Ultimate Kairos Guide</h3>
-                            <p>by HyperionPro</p>
-                        </div>
+                    <div class="e-info">
+                        <h3>Developer Q&A Stream</h3>
+                        <p>Join the team on Twitch as we answer your questions about Patch 1.4.</p>
                     </div>
-                    
-                    <div class="showcase-card">
-                        <img src="https://placehold.co/600x400/1a1a3a/00ffff?text=Cosplay+of+Astra" alt="Cosplay of Astra">
-                        <div class="showcase-card-content">
-                            <h3>Astra Cosplay</h3>
-                            <p>by StarlightCraft</p>
-                        </div>
+                    <div class="e-action">
+                        <a href="#" class="btn btn-sec1">Get Details</a>
                     </div>
                 </div>
-                
-                <div class="view-more-button">
-                    <a href="#" class="btn btn-sec">View More Creations</a>
-                </div>
-            </div>
-        </section>
-        
-        <section id="events">
-            <div class="container">
-                <h2 class="section-title">Upcoming <span>Events</span></h2>
-                
-                <div class="event-grid">
-                    <div class="event-card">
-                        <div class="event-date">
-                            <span class="month">NOV</span>
-                            <span class="day">20</span>
-                        </div>
-                        <div class="event-details">
-                            <h3>Developer Q&A Stream</h3>
-                            <p>Join the team on Twitch as we answer your questions about Patch 1.4.</p>
-                        </div>
-                        <div class="event-action">
-                            <a href="#" class="btn btn-sec">Get Details</a>
-                        </div>
-                    </div>
-                    
-                    <div class="event-card">
-                        <div class="event-date">
-                            <span class="month">NOV</span>
-                            <span class="day">25</span>
-                        </div>
-                        <div class="event-details">
-                            <h3>Community "Shard" Design Contest</h3>
-                            <p>Submit your concept for a new Shard! Grand prize winner gets their design considered by the dev team.</p>
-                        </div>
-                        <div class="event-action">
-                            <a href="#" class="btn btn-sec">Learn More</a>
-                        </div>
-                    </div>
 
-                    <div class="event-card">
-                        <div class="event-date">
-                            <span class="month">DEC</span>
-                            <span class="day">01</span>
-                        </div>
-                        <div class="event-details">
-                            <h3>Void's Echo Fan Art Contest</h3>
-                            <p>Create art inspired by the new patch. Submissions open December 1st.</p>
-                        </div>
-                        <div class="event-action">
-                            <a href="#" class="btn btn-sec">Learn More</a>
-                        </div>
+                <div class="e-card">
+                    <div class="e-date">
+                        <span class="month">NOV</span>
+                        <span class="day">25</span>
+                    </div>
+                    <div class="e-info">
+                        <h3>Community "Shard" Design Contest</h3>
+                        <p>Submit your concept for a new Shard! Grand prize winner gets their design considered.</p>
+                    </div>
+                    <div class="e-action">
+                        <a href="#" class="btn btn-sec1">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="e-card">
+                    <div class="e-date">
+                        <span class="month">DEC</span>
+                        <span class="day">01</span>
+                    </div>
+                    <div class="e-info">
+                        <h3>Void's Echo Fan Art Contest</h3>
+                        <p>Create art inspired by the new patch. Submissions open December 1st.</p>
+                    </div>
+                    <div class="e-action">
+                        <a href="#" class="btn btn-sec1">Learn More</a>
                     </div>
                 </div>
             </div>
         </section>
-
     </main>
 
     <footer>
-        <div class="container">
+        <div class="cont">
             <div class="footer-media">
                 <a href="#">Instagram</a>
                 <a href="#">Twitter</a>
@@ -452,13 +105,12 @@
                 <a href="#">Privacy Policy</a>
                 <a href="#">Terms of Service</a>
             </div>
-            
+
             <p>
-                @ 2025 HYPERION STUDIOS. All rights reserved. All trademarks are property of their respective owners.
+                @ 2025 HYPERION STUDIOS.
             </p>
         </div>
     </footer>
-
 </body>
 
 </html>
