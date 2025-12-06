@@ -18,11 +18,29 @@
             <label for="password">Password</label>
             <input type="password" id="password" name="password" class="inf" placeholder="********">
             <button type="submit" class="btn-submit">Login</button>
+            <p id="message" class="message"></p>
             <p class="links">
                 <a href="#">Forgot Password?</a> 
                 <a href="#">Sign Up</a>
             </p>
         </form>
     </div>
+        <script>
+        document.querySelector('form').addEventListener('submit', function(r) {
+            r.preventDefault();
+
+            const e = document.getElementById('email').value;
+            const p = document.getElementById('password').value;
+            const m = document.getElementById('message');
+            
+            if (e && p) {
+                m.textContent = 'Login successful!';
+                m.className = 'message success';
+            } else {
+                m.textContent = 'Please enter email and password.';
+                m.className = 'message error';
+            }
+        });
+        </script>
 </body>
 </html>
