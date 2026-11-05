@@ -166,7 +166,7 @@ footer p {
 .main {
     height: 80vh;
     min-height: 400px;
-    background-image: url('#');
+    background-image: url('zMedia/Back-ground.png');
     background-size: cover;
     background-position: center;
     display: flex;

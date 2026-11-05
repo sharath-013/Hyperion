@@ -7,40 +7,75 @@
     <link rel="stylesheet" href="Signup.css">
 </head>
 <body>
+    <header class="signin-nav">
+        <a href="index.html" class="logo">HYPERION</a>
+        <a href="index.html" class="back-link">← Back to Home</a>
+    </header>
+
     <div class="signin-container">
         <div class="signin-header">
-            <h1>Sign In</h1>
-            <p>Access your account</p>
+            <h1 id="form-title">Sign In</h1>
+            <p id="form-subtitle">Access your account</p>
         </div>
         <form action="#" method="POST">
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" class="inf" placeholder="name@example.com">
+            <input type="email" id="email" name="email" class="inf" placeholder="name@example.com" required>
             <label for="password">Password</label>
-            <input type="password" id="password" name="password" class="inf" placeholder="********">
-            <button type="submit" class="btn-submit">Login</button>
+            <input type="password" id="password" name="password" class="inf" placeholder="********" required>
+            <button type="submit" id="btn-submit" class="btn-submit">Login</button>
             <p id="message" class="message"></p>
             <p class="links">
-                <a href="#">Forgot Password?</a> 
-                <a href="#">Sign Up</a>
+                <a href="#" id="toggle-auth">Need an account? Sign Up</a>
             </p>
         </form>
     </div>
-        <script>
-        document.querySelector('form').addEventListener('submit', function(r) {
+
+    <script>
+        const form = document.querySelector('form');
+        const formTitle = document.getElementById('form-title');
+        const formSubtitle = document.getElementById('form-subtitle');
+        const btnSubmit = document.getElementById('btn-submit');
+        const toggleAuth = document.getElementById('toggle-auth');
+        const message = document.getElementById('message');
+        let isSignUp = false;
+
+        toggleAuth.addEventListener('click', function(e) {
+            e.preventDefault();
+            isSignUp = !isSignUp;
+            if (isSignUp) {
+                formTitle.textContent = 'Create Account';
+                formSubtitle.textContent = 'Join the simulation today';
+                btnSubmit.textContent = 'Sign Up';
+                toggleAuth.textContent = 'Already have an account? Sign In';
+                document.title = 'Sign Up | HYPERION';
+            } else {
+                formTitle.textContent = 'Sign In';
+                formSubtitle.textContent = 'Access your account';
+                btnSubmit.textContent = 'Login';
+                toggleAuth.textContent = 'Need an account? Sign Up';
+                document.title = 'Sign In | HYPERION';
+            }
+            message.textContent = '';
+            message.className = 'message';
+        });
+
+        form.addEventListener('submit', function(r) {
             r.preventDefault();
 
-            const e = document.getElementById('email').value;
-            const p = document.getElementById('password').value;
-            const m = document.getElementById('message');
+            const e = document.getElementById('email').value.trim();
+            const p = document.getElementById('password').value.trim();
             
             if (e && p) {
-                m.textContent = 'Login successful!';
-                m.className = 'message success';
+                message.textContent = isSignUp ? 'Account created successfully! Redirecting...' : 'Login successful! Redirecting...';
+                message.className = 'message success';
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 1500);
             } else {
-                m.textContent = 'Please enter email and password.';
-                m.className = 'message error';
+                message.textContent = 'Please enter email and password.';
+                message.className = 'message error';
             }
         });
-        </script>
+    </script>
 </body>
 </html>
